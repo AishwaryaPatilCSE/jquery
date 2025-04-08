@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aishwarya Sanjay Patil | Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="portfolio.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Existing Content (Navigation, Home, About, Projects, etc.) -->
+    
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2>My Gallery</h2>
+            <div class="btn-group mb-4" role="group" aria-label="Filter Buttons">
+                <button type="button" class="btn btn-primary filter-btn" data-category="all">All</button>
+                <button type="button" class="btn btn-primary filter-btn" data-category="nature">Nature</button>
+                <button type="button" class="btn btn-primary filter-btn" data-category="technology">Technology</button>
+                <button type="button" class="btn btn-primary filter-btn" data-category="architecture">Architecture</button>
+            </div>
+            <div class="row" id="image-gallery">
+                <div class="col-4 filter-item" data-category="nature">
+                    <img src="https://media.istockphoto.com/id/1484902508/photo/drop-in-time-fairy-lake-tree-port-renfrew-vancouver-island-bc-canada.jpg?s=612x612&w=0&k=20&c=hozFKoydEW69RWN-me3mcXPN2q09R8JYRMLGZTVTxKU=" alt="Nature Image 1" class="img-fluid gallery-img">
+                </div>
+                <div class="col-4 filter-item" data-category="technology">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/023/056/329/small_2x/programmer-people-working-laptops-or-smartphones-with-ai-artificial-intelligence-software-engineer-coding-on-laptop-computers-with-technology-icons-and-binary-code-big-data-ai-bot-digital-machine-photo.jpg" alt="Technology Image 1" class="img-fluid gallery-img">
+                </div>
+                <div class="col-4 filter-item" data-category="architecture">
+                    <img src="https://res.cloudinary.com/enchanting/f_auto,q_70,w_1600,h_1066,c_fill/et-web/2019/12/Colosseum-in-Rome-Italy.-1.jpg" alt="Architecture Image 1" class="img-fluid gallery-img">
+                </div>
+                <div class="col-4 filter-item" data-category="nature">
+                    <img src="https://www.travelandleisure.com/thmb/Z6XGwXju9LHti6QeGeRG2iz7BTk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/japan-BEAUTCONT1021-7d58a9021f7e42fba9ca617ad668fc81.jpg" alt="Nature Image 2" class="img-fluid gallery-img">
+                </div>
+                <div class="col-4 filter-item" data-category="technology">
+                    <img src="https://cdn.pixabay.com/photo/2021/10/11/17/54/technology-6701504_960_720.jpg" alt="Technology Image 2" class="img-fluid gallery-img">
+                </div>
+                <div class="col-4 filter-item" data-category="architecture">
+                    <img src="https://www.japanrailpassnow.com/wp-content/uploads/2017/06/1000x667xByodo-In-Temple-in-Valley-of-the-Temples.jpg.pagespeed.ic.QZ9-2Fis68.jpg" alt="Architecture Image 2" class="img-fluid gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Aishwarya Sanjay Patil. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- jQuery Scripts for Gallery -->
+    <script>
+        $(document).ready(function () {
+            $(".filter-btn").click(function () {
+                var category = $(this).attr("data-category");
+                
+                if (category == "all") {
+                    $(".filter-item").fadeIn(500);
+                } else {
+                    $(".filter-item").each(function () {
+                        if ($(this).attr("data-category") == category) {
+                            $(this).fadeIn(500);
+                        } else {
+                            $(this).fadeOut(500);
+                        }
+                    });
+                }
+            });
+
+            $(".gallery-img").hover(function () {
+                $(this).stop(true, true).slideUp(300).slideDown(300);
+            });
+        });
+    </script>
+</body>
+</html>
